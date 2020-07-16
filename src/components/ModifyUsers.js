@@ -1,6 +1,7 @@
 import React,{ Fragment, useState , useEffect} from 'react';
-import {List,Avatar, Divider} from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import {Button, Tooltip, Avatar, Divider} from 'antd';
+import { UserOutlined,SearchOutlined } from '@ant-design/icons';
+
 
 
 const ModifyUsers = () => {
@@ -32,49 +33,62 @@ const ModifyUsers = () => {
   return ( 
     
     
+    
+    
     <Fragment> 
-    
-    <div>
-    
-    <Avatar size={64} icon={<UserOutlined />} />
-    <List
-    size="small"
-    header={<div>Header</div>}
-    />
-    
+    <div className="list">
     <ul>
-    {list.users.map(item => (
-        <li key={item.id}>
-        {item.name} - {item.email} 
-        </li>
-        ))}
+    {list.map(item => (
+      <li key={item.id}>
+      <Divider orientation="left">Users</Divider>
+      <Avatar style={{backgroundColor: '#3399ff' }} size={64} icon={<UserOutlined />} />
+      <Tooltip title="Editar">
+      <Button type="primary" shape="circle" icon={<SearchOutlined />} />
+    </Tooltip>
+      <li>
+      {item.name} 
+      </li>
+      <li >
+      {item.username} 
+      </li>
+      <li>
+      {item.email} 
+      </li>
+      </li>
+      ))}
       </ul>
-
-      <Divider orientation="left">Large Size</Divider>
-      
       </div>
       </Fragment>
       );
-      
-      
-      
     }
     export default ModifyUsers;
-
-
-
-
-
+    
+ 
       
       
       
       
       
       
-  
-  
-  
-  
+    
+      
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
